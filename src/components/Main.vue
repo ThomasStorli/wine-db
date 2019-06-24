@@ -8,7 +8,6 @@
 <script>
 import TopProduct from './TopProduct.vue'
 import ProductList from './ProductList.vue'
-import axios from 'axios'
 
 export default {
   name: 'Main',
