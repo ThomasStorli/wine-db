@@ -15,7 +15,6 @@
     <h3>
     {{item.ppa}},- per l/alcohol
     </h3>
-    </div>
   </div>
 </template>
 
