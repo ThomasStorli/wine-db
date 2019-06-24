@@ -1,10 +1,10 @@
 <template>
-  <div class='container text-center'>
+  <div class='container text-center border w-50 pt-1'>
     <h3> Billigste drikke </h3>
     <img v-bind:src="item.img" style="height: 150px;">
-    <h1>
+    <h3>
     {{item.name}}
-    </h1>
+    </h3>
     <div class="dropdown-divider"></div>
     <h3>
     {{item.price}},-
