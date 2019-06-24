@@ -1,4 +1,5 @@
 <template>
+  <a :href="item.link">
   <div class='container text-center border w-50 pt-1 alert alert-light'>
     <h3> Billigste drikke </h3>
     <img v-bind:src="item.img" style="height: 150px;">
@@ -16,6 +17,7 @@
     {{item.ppa}},- per l/alcohol
     </h3>
   </div>
+  </a>
 </template>
 
 <script>
