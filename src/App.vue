@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Header/>
-    <Main/>
+    <Header v-bind:updated="items.updated"/>
+    <Main v-bind:items="items"/>
     <Footer/>
   </div>
 </template>
@@ -10,6 +10,7 @@
 import Header from "./components/Header.vue";
 import Main from "./components/Main.vue";
 import Footer from "./components/Footer.vue";
+import axios from 'axios'
 
 export default {
   name: 'app',
@@ -17,6 +18,23 @@ export default {
     Header,
     Main,
     Footer
+  },
+  data() {
+    return {
+      // "link" is a public GitHub Gist for anyone to see
+      link: "https://gist.githubusercontent.com/ThomasStorli/91432dde678216ecab41c31ae007f49b/raw/",
+      items: null
+    }
+  },
+  methods: {
+    loadData(){
+      axios.get(this.link).then(response =>{
+        this.items = response.data
+      })
+    }
+  },
+  beforeMount() {
+    this.loadData()
   }
 }
 </script>
