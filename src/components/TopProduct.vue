@@ -36,4 +36,11 @@ export default {
 h3{
   font-size: 1.2em;
 }
+
+.border {
+    border-width: 3px !important;
+}
+.container{
+    color: #343a40 !important;
+}
 </style>
