@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1> WineDB </h1>
+  <div class="container header border-bottom mb-3">
+    <h1> Wine<span style="color: black;">DB</span></h1>
     <p> Last updated: {{updated}} </p>
   </div>
 </template>
@@ -18,8 +18,13 @@ export default {
 </script>
 
 <style scoped>
+.header {
+  padding-top:5px;
+  background-color:#fff;
+}
+
 h1 {
-  font-size: 2.5em;
+  font-size: 2.2em;
   text-align: center;
   color:brown;
 }
@@ -28,5 +33,6 @@ p {
   font-size: 0.7em;
   text-align: center;
   color: grey;
+  margin-bottom: 10px;
 }
 </style>
