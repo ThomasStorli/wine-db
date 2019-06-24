@@ -8,13 +8,13 @@
     </h3>
     <div class="dropdown-divider"></div>
     <h3>
-    {{item.price}},-
+    {{item.price}}kr
     </h3>
     <h3>
     {{item.volume}} cl
     </h3>
     <h3>
-    {{item.ppa}},- per l/alcohol
+    {{item.ppa}}kr per l/alkohol
     </h3>
   </div>
   </a>
