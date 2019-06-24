@@ -1,9 +1,21 @@
 <template>
-  <div>
-    <footer>
-      <h1> {{item.name}} </h1>
-      <!--<img src="{{item.name}}" />-->
-    </footer>
+  <div class='container text-center'>
+    <h3> Billigste drikke </h3>
+    <img v-bind:src="item.img" style="height: 150px;">
+    <h1>
+    {{item.name}}
+    </h1>
+    <div class="dropdown-divider"></div>
+    <h3>
+    {{item.price}},-
+    </h3>
+    <h3>
+    {{item.volume}} cl
+    </h3>
+    <h3>
+    {{item.ppa}},- per l/alcohol
+    </h3>
+    </div>
   </div>
 </template>
 
@@ -18,12 +30,11 @@ export default {
 </script>
 
 <style scoped>
-h1 {
-  font-size: 1em;
-  text-align: center;
+.centerText{
+  display: block;
+  margin: auto;
 }
-
-img {
-  width: 50%;
+h3{
+  font-size: 1.2em;
 }
 </style>
