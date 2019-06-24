@@ -19,8 +19,7 @@ export default {
     return {
       // "link" is a public GitHub Gist for anyone to see
       link: "https://gist.githubusercontent.com/ThomasStorli/91432dde678216ecab41c31ae007f49b/raw/3a0b8fde6c58c5ae5463c30ac7e0ccf45d9f48c4/wine-db-data.json",
-      items: null,
-      testDat: ["Hei", "På", "Dei"]
+      items: null
     }
   },
   methods: {
