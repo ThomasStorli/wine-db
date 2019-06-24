@@ -1,5 +1,5 @@
 <template>
-  <div class='container text-center border w-50 pt-1'>
+  <div class='container text-center border w-50 pt-1 alert alert-light'>
     <h3> Billigste drikke </h3>
     <img v-bind:src="item.img" style="height: 150px;">
     <h3>
