@@ -14,7 +14,7 @@
     {{item.volume}} cl
     </h3>
     <h3>
-    {{item.ppa}}kr per l/alkohol
+    {{item.ppa}}kr per liter alkohol
     </h3>
   </div>
   </a>
