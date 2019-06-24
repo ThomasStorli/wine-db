@@ -26,7 +26,7 @@
           </div>      
           <div class="col-5 border-left border-right">
             <h1>{{ item.name }} </h1>
-            <p> {{item.price }}kr {{item.volume}}cl</p>
+            <p> {{item.price }}kr {{item.volume}}cl {{item.abv}}%</p>
             <p><small>{{ item.ppa }}kr per liter alkohol</small></p>
           </div>
           <div class="col-3">
