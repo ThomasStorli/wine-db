@@ -23,6 +23,6 @@ export default {
 
 <style>
 body {
-  font-family: 'Libre Baskerville', serif;
+  font-family: 'Oswald', serif;
 }
 </style>
