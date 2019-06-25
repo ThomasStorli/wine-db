@@ -3,13 +3,9 @@
     <div class="container">
       <div class="row pb-2">
         <div class="col">
-          <select class="form-control" id="exampleFormControlSelect1" v-model="type">
-            <option>Alle typer alkohol</option>
-            <option>Rødvin</option>
-            <option>Hvitvin</option>
-            <option>Bobler</option>
-            <option>Brennevin</option>
-            <option>Øl</option>
+          <select class="form-control">
+            <option value="Alle typer alkohol" selected="selected">Alle typer alkohol</option>
+            <option v-for="(type, index) in types" :key="index">{{type}}</option>
           </select>
         </div>
       <div class="col">
@@ -28,7 +24,10 @@
 export default {
   name: 'Footer',
   components: {
-  }
+  },
+  props: [
+    'types'
+  ]
 }
 </script>
 

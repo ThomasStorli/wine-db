@@ -1,7 +1,7 @@
 <template>
   <div>
     <TopProduct v-bind:item ='items.items[0]' />
-    <ProductChoose />
+    <ProductChoose v-bind:types='types'/>
     <ProductList v-bind:items='items.items' />
   </div>
 </template>
@@ -19,7 +19,8 @@ export default {
     ProductList
   },
   props: [
-    'items'
+    'items',
+    'types'
   ]
 }
 </script>
