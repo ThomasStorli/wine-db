@@ -29,8 +29,7 @@ export default {
         'Hvitvin',
         'Bobler',
         'Brennevin',
-        'Øl',
-        'Sprit'
+        'Øl'
       ]
     }
   },
