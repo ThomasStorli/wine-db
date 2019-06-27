@@ -1,8 +1,8 @@
 <template>
   <div>
-    <TopProduct v-bind:item ='items.items[0]' />
-    <ProductChoose v-bind:types='types'/>
-    <ProductList v-bind:items='items.items' />
+    <TopProduct v-bind:item ='currentItems.products[0]' />
+    <ProductChoose v-bind:types='types' v-model="currentType"/>
+    <ProductList v-bind:products='currentItems.products' v-bind:type="currentType"/>
   </div>
 </template>
 
@@ -18,10 +18,48 @@ export default {
     ProductChoose,
     ProductList
   },
+  data() {
+    return {
+      types: [],
+      currentType: "",
+      currentItems: null
+    }
+  },
   props: [
-    'items',
-    'types'
-  ]
+    'items'
+  ],
+  methods: {
+    getTypes: function(){  
+      var l = [] 
+      for (var i = 0; i < this.items.length; ++i){
+        l.push(this.items[i].name);
+      }
+      this.types = l;
+    },
+    getCurrentItems: function(val){
+      for (var i = 0; i < this.items.length; ++i){
+        if (val == ""){
+          this.currentItems = this.items[0]
+          break;
+        }
+        if (this.items[i].name == val){
+          this.currentItems = this.items[i]
+          break;
+        }
+        this.currentItems = null
+      }
+    }
+  },
+  mounted() {
+    this.getTypes();
+    this.getCurrentItems(this.currentType);
+  },
+  watch: {
+    currentType: function(val){
+      this.getCurrentItems(val)
+    }
+  }
+
 }
 </script>
 

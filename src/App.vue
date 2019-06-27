@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Header v-bind:updated="items.updated"/>
-    <Main v-bind:items="items" :types="types" />
+    <Header v-bind:updated="items.date"/>
+    <Main v-bind:items="items.items" :types="types" />
     <Footer/>
   </div>
 </template>
@@ -23,14 +23,7 @@ export default {
     return {
       // "link" is a public GitHub Gist for anyone to see
       link: "https://gist.githubusercontent.com/ThomasStorli/91432dde678216ecab41c31ae007f49b/raw/",
-      items: null,
-      types: [
-        'Rødvin',
-        'Hvitvin',
-        'Bobler',
-        'Brennevin',
-        'Øl'
-      ]
+      items: null
     }
   },
   methods: {
@@ -41,7 +34,7 @@ export default {
     }
   },
   beforeMount() {
-    this.loadData()
+    this.loadData();
   }
 }
 </script>

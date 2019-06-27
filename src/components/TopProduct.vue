@@ -1,9 +1,9 @@
 <template>
     <div class='container text-center border w-50 pt-1 alert alert-light'>
-      <a :href="item.link">
+      <a :href="item.url">
       <div>
         <h3> Billigste drikke </h3>
-        <img v-bind:src="item.img" style="height: 150px;">
+        <img v-bind:src="item.picture" style="height: 150px;">
         <h3>
           {{item.name}} 
           <img v-if="item.abv < 22" style="width:23px;" src="../assets/18.png" />
@@ -14,11 +14,13 @@
             {{item.price}}kr
           </h3>
           <h3>
-            {{item.abv}}%
-            {{item.volume}} cl
+            {{item.cl}} cl
           </h3>
           <h3>
-            {{item.ppa}}kr per liter alkohol
+            {{item.alcohol}}%
+          </h3>
+          <h3>
+            {{item.price_per_alco}}kr per liter alkohol
           </h3>
         </div>
       </a>
