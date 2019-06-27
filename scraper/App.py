@@ -2,30 +2,29 @@ import json
 import codecs
 from datetime import date
 
-def start(fileURL):
-    with codecs.open(fileURL, 'r', encoding='utf8') as f:
+def start():
+    with codecs.open('wine_sorted.json', 'r', encoding='utf8') as f:
         data = json.load(f)
         createObject(data)
 
-
+types = ["Rødvin", "Hvitvin", "Rosévin", "Sterkvin", "Musserende vin", "Brennevin", "Vodka", "Gin", "Sake", "Øl", "Perlende vin", "Tequila", "Bitter", "Rom", "Likør", "Whisky", "Akevitt", "India pale ale"]
 def createObject(s):
     prodList = []
 
-    for p in s["wine"]:
-        for k in p["type"]:
-            k = k.lower()
-            k = k.capitalize()
-            if k not in ["Rødvin", "Hvitvin", "Rosévin", "Sterkvin", "Musserende vin", "Brennevin", "Vodka", "Gin", "Sake", "Øl", "Perlende vin", "Tequila", "Bitter", "Rom", "Likør", "Whisky", "Akevitt", "India pale ale"]:
+    for p in s:
+        for t in p["type"]:
+            t = t.lower()
+            t = t.capitalize()
+            if t not in types:
                 continue
 
-            e = typeInList(prodList, k)
+            e = typeInList(prodList, t)
+
             if (e == -1):
-                prodList.append({"name": k, "products": [p]})
+                prodList.append({"name": t, "products": [p]})
                 continue
-            elif len(prodList[e]["products"])< 100:
+            elif p not in prodList[e]["products"] and len(prodList[e]["products"])< 100:
                 prodList[e]["products"].append(p)
-
-
 
     today = date.today()
     d1 = today.strftime("%d/%m/%Y")
@@ -33,7 +32,7 @@ def createObject(s):
     output = {"date": f"{d1}"}
     output["items"] = prodList
 
-    with codecs.open("produtto12345.json", "w+", encoding='utf8') as g:
+    with codecs.open("output.json", "w+", encoding='utf8') as g:
         json.dump(output, g, ensure_ascii=False)
 
 def typeInList(l, t):
@@ -42,6 +41,4 @@ def typeInList(l, t):
             return e
     return -1
 
-
-
-start('C:/Users/Alexander/PycharmProjects/WineScraper/wine_sorted.json')
+start()
