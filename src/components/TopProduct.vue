@@ -20,7 +20,7 @@
             {{item.alcohol}}%
           </h3>
           <h3>
-            {{item.price_per_alco}}kr per liter alkohol
+            {{item.price_per_alco}}kr per liter rent alkohol
           </h3>
         </div>
       </a>
