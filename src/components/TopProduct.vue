@@ -6,7 +6,7 @@
         <img v-bind:src="item.picture" style="height: 150px;">
         <h3>
           {{item.name}} 
-          <img v-if="item.abv < 22" style="width:23px;" src="../assets/18.png" />
+          <img v-if="item.alcohol < 22" style="width:23px;" src="../assets/18.png" />
           <img v-else style="width:23px;" src="../assets/20.png" />
         </h3>
         <div class="dropdown-divider"></div>
