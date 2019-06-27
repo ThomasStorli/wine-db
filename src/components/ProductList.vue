@@ -21,17 +21,17 @@
           </div> 
           <div class="col-3">
             <div class="col image-container">
-              <img v-bind:src="item.img"/>
+              <img v-bind:src="item.picture"/>
             </div>
           </div>      
           <div class="col-5 border-left border-right">
             <h1>{{ item.name }} </h1>
-            <p> {{item.price }}kr {{item.volume}}cl {{item.abv}}%</p>
-            <p><small>{{ item.ppa }}kr per liter alkohol</small></p>
+            <p> {{item.price }}kr {{item.cl}}cl {{item.alcohol}}%</p>
+            <p><small>{{ item.price_per_alco }}kr per liter alkohol</small></p>
           </div>
           <div class="col-3">
             <span class="image-container age-limit">
-              <img v-if="item.abv < 22" src="../assets/18.png" />
+              <img v-if="item.alcohol < 22" src="../assets/18.png" />
               <img v-else src="../assets/20.png"/>
             </span>
           </div>

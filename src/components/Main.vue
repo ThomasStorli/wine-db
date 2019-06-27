@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TopProduct v-bind:item ='items.items[0].prods[0]' />
+    <TopProduct v-bind:item ='items[0].prods[0]' />
     <ProductChoose v-bind:types='types'/>
     <ProductList v-bind:items='items.items[0].prods' />
   </div>

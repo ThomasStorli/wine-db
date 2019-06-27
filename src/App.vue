@@ -1,7 +1,8 @@
 <template>
   <div>
     <Header v-bind:updated="items.date"/>
-    <Main v-bind:items="items" :types="types" />
+    {{items.items[0].name}}
+    <Main v-bind:items="items.items" :types="types" />
     <Footer/>
   </div>
 </template>
@@ -23,9 +24,9 @@ export default {
     return {
       // "link" is a public GitHub Gist for anyone to see
       link: "https://gist.githubusercontent.com/ThomasStorli/91432dde678216ecab41c31ae007f49b/raw/",
-      test_link: "https://gist.githubusercontent.com/ThomasStorli/c36723fbc0ed7c2368f30eed186d53b4/raw/",
+      test_link: "https://gist.githubusercontent.com/ThomasStorli/c36723fbc0ed7c2368f30eed186d53b4/raw/134c5dba0da3ac113c07972502c1d50d7ed94d71/gistfile1.json",
       items: null,
-      types: this.getTypes()
+      types: ["Vin"]
     }
   },
   methods: {
@@ -35,10 +36,11 @@ export default {
       })
     },
     getTypes(){
-      var l = []
+      var l = new Array();
       for (var i = 0; i < this.items.items.length; i++){
-        l.append(this.items.items[i].name)
+        l.append(this.items.items[i].name);
       }
+      return l;
     }
   },
   beforeMount() {
