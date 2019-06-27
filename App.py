@@ -1,8 +1,9 @@
 import json
+import codecs
 from datetime import date
 
 def start(fileURL):
-    with open(fileURL, 'r') as f:
+    with codecs.open(fileURL, 'r', encoding='utf8') as f:
         data = json.load(f)
         createObject(data)
 
@@ -27,8 +28,8 @@ def createObject(s):
     output = {"date": f"{d1}"}
     output["items"] = prodList
 
-    with open("produtto1234.json", "w+") as g:
-        json.dump(output, g)
+    with codecs.open("produtto1234.json", "w+", encoding='utf8') as g:
+        json.dump(output, g, ensure_ascii=False)
 
 def typeInList(l, t):
     for e, x in enumerate(l):
@@ -38,4 +39,4 @@ def typeInList(l, t):
 
 
 
-start('C:\\Projects\\wine-db\\wine_3.json')
+start('wine_sorted.json')
