@@ -14,10 +14,10 @@ def createObject(s):
     for p in s["wine"]:
         for k in p["type"]:
             e = typeInList(prodList, k)
-            if (e == -1):   
+            if (e == -1):
                 prodList.append({"name": k, "products": [p]})
                 continue
-            else:
+            elif len(prodList[e]["products"])< 100:
                 prodList[e]["products"].append(p)
 
 
@@ -39,4 +39,4 @@ def typeInList(l, t):
 
 
 
-start('wine_sorted.json')
+start('C:/Users/Alexander/PycharmProjects/WineScraper/wine_sorted.json')
