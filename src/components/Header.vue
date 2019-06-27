@@ -1,7 +1,7 @@
 <template>
   <div class="container header border-bottom mb-3">
     <h1> Wine<span style="color: black;">DB</span></h1>
-    <p> Last updated: {{updated}} </p>
+    <p> Sist Oppdatert: {{updated}} </p>
   </div>
 </template>
 

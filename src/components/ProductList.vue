@@ -1,23 +1,41 @@
 <template>
-  <div class="container border">
-    <div v-for="(item, index) in items" :key="index" class="row justify-content-center align-items-center border"> 
-        <div class="col-2">
-          <span class="rank">{{index+1}}</span>
-          <span class="image-container">
-            <img v-bind:src="item.img"/>
-          </span>
-        </div>      
-        <div class="col-7 border-left border-right">
-          <h1>{{ item.name }} </h1>
-          <p> {{item.price }}kr {{item.volume}}cl</p>
-          <p><small>{{ item.ppa }}kr per liter alkohol</small></p>
-        </div>
-        <div class="col-3">
-          <span class="image-container age-limit">
-            <img v-if="item.abv < 22" src="../assets/18.png" />
-            <img v-else src="../assets/20.png"/>
-          </span>
-        </div>
+  <div class="mx-2">
+    <div class="container border">
+      <div class="row justify-content-center align-items-center border">
+          <div class="col-1">
+            <small>#</small>
+          </div> 
+          <div class="col-3 text-center">
+            <small>Bilde</small>
+          </div>      
+          <div class="col-5 border-left border-right">
+            <small>Info</small>
+          </div>
+          <div class="col-3 text-center">
+            <small>Aldersgrense</small>
+          </div>
+      </div>
+      <div v-for="(item, index) in items" :key="index" class="row justify-content-center align-items-center border"> 
+          <div class="col-1">
+            {{index+1}}
+          </div> 
+          <div class="col-3">
+            <div class="col image-container">
+              <img v-bind:src="item.img"/>
+            </div>
+          </div>      
+          <div class="col-5 border-left border-right">
+            <h1>{{ item.name }} </h1>
+            <p> {{item.price }}kr {{item.volume}}cl {{item.abv}}%</p>
+            <p><small>{{ item.ppa }}kr per liter alkohol</small></p>
+          </div>
+          <div class="col-3">
+            <span class="image-container age-limit">
+              <img v-if="item.abv < 22" src="../assets/18.png" />
+              <img v-else src="../assets/20.png"/>
+            </span>
+          </div>
+      </div>
     </div>
   </div>
 </template>
@@ -55,9 +73,9 @@ h1 {
   margin:auto;
 }
 .age-limit img{
-  height: 50px;
+  width: 40px;
+  height: 40px;
 }
 .rank {
-  position: absolute;
 }
 </style>

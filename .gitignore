@@ -20,3 +20,4 @@ yarn-error.log*
 *.sln
 *.sw?
 src/assets/Thumbs.db
+package-lock.json

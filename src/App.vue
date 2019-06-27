@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header v-bind:updated="items.updated"/>
-    <Main v-bind:items="items"/>
+    <Main v-bind:items="items" :types="types" />
     <Footer/>
   </div>
 </template>
@@ -23,7 +23,14 @@ export default {
     return {
       // "link" is a public GitHub Gist for anyone to see
       link: "https://gist.githubusercontent.com/ThomasStorli/91432dde678216ecab41c31ae007f49b/raw/",
-      items: null
+      items: null,
+      types: [
+        'Rødvin',
+        'Hvitvin',
+        'Bobler',
+        'Brennevin',
+        'Øl'
+      ]
     }
   },
   methods: {
