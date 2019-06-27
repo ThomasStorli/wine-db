@@ -13,6 +13,11 @@ def createObject(s):
 
     for p in s["wine"]:
         for k in p["type"]:
+            k = k.lower()
+            k = k.capitalize()
+            if k not in ["Rødvin", "Hvitvin", "Rosévin", "Sterkvin", "Musserende vin", "Brennevin", "Vodka", "Gin", "Sake", "Øl", "Perlende vin", "Tequila", "Bitter", "Rom", "Likør", "Whisky", "Akevitt", "India pale ale"]:
+                continue
+
             e = typeInList(prodList, k)
             if (e == -1):
                 prodList.append({"name": k, "products": [p]})
@@ -28,7 +33,7 @@ def createObject(s):
     output = {"date": f"{d1}"}
     output["items"] = prodList
 
-    with codecs.open("produtto1234.json", "w+", encoding='utf8') as g:
+    with codecs.open("produtto12345.json", "w+", encoding='utf8') as g:
         json.dump(output, g, ensure_ascii=False)
 
 def typeInList(l, t):
