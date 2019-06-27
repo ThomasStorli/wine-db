@@ -1,8 +1,8 @@
 <template>
   <div>
-    <TopProduct v-bind:item ='currentItems.prods[0]' />
+    <TopProduct v-bind:item ='currentItems.products[0]' />
     <ProductChoose v-bind:types='types' v-model="currentType"/>
-    <ProductList v-bind:products='currentItems.prods' v-bind:type="currentType"/>
+    <ProductList v-bind:products='currentItems.products' v-bind:type="currentType"/>
   </div>
 </template>
 

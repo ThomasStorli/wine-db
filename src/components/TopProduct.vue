@@ -17,6 +17,9 @@
             {{item.cl}} cl
           </h3>
           <h3>
+            {{item.alcohol}}%
+          </h3>
+          <h3>
             {{item.price_per_alco}}kr per liter alkohol
           </h3>
         </div>

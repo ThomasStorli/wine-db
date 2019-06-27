@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     loadData(){
-      axios.get(this.test_link).then(response =>{
+      axios.get(this.link).then(response =>{
         this.items = response.data
       })
     }

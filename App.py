@@ -1,4 +1,5 @@
 import json
+from datetime import date
 
 def start(fileURL):
     with open(fileURL, 'r') as f:
@@ -7,23 +8,34 @@ def start(fileURL):
 
 
 def createObject(s):
-    products = {}
+    prodList = []
+
     for p in s["wine"]:
         for k in p["type"]:
-            if k in products:
-                products[k].append(p)
+            e = typeInList(prodList, k)
+            if (e == -1):   
+                prodList.append({"name": k, "products": [p]})
+                continue
             else:
-                products[k] = [p]
+                prodList[e]["products"].append(p)
 
-    prodList = []
-    for prod, v in products.items():
-        prodList.append({prod:v})
 
-    output = {"date": "27/06/19"}
+    
+    today = date.today()
+    d1 = today.strftime("%d/%m/%Y")
+
+    output = {"date": f"{d1}"}
     output["items"] = prodList
 
-    with open("produtto.json", "w+") as g:
+    with open("produtto1234.json", "w+") as g:
         json.dump(output, g)
 
+def typeInList(l, t):
+    for e, x in enumerate(l):
+        if x["name"] == t:
+            return e
+    return -1
 
-start('C:/Users/Alexander/git/wine-db/src/assets/wine_3.json')
+
+
+start('C:\\Projects\\wine-db\\wine_3.json')
