@@ -20,12 +20,16 @@
           {{index+1}}
         </div> 
         <div class="col-3">
-          <div class="col image-container">
-            <img v-bind:src="item.picture"/>
-          </div>
+           <a :href="item.url">
+            <div class="col image-container">
+              <img v-bind:src="item.picture"/>
+            </div>
+          </a>
         </div>      
         <div class="col-5 border-left border-right">
-          <h1>{{ item.name }} </h1>
+          <a :href="item.url">
+            <h1 style="text-decoration: underline; color:#343a40;">{{ item.name }} </h1>
+          </a>
           <p> {{item.price }}kr {{item.cl}}cl {{item.alcohol}}%</p>
           <p><small>{{ item.price_per_alco }}kr per liter alkohol</small></p>
         </div>
