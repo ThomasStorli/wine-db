@@ -3,9 +3,9 @@
     <form>
       <div class="form-group">
         <label for="typeSelect"> Alkohol Type </label>
-        <select id="typeSelect" class="form-control">
-            <option value="Alle typer alkohol" selected="selected">Alle typer alkohol</option>
-            <option v-for="(type, index) in types" :key="index">{{type}}</option>
+        <select id="typeSelect" class="form-control" v-model="currentType" @input="event => { $emit('input', event.target.value) }">
+            <option value="" selected="selected">Alle typer alkohol</option>
+            <option v-for="(type, index) in types" :key="index" :value="type">{{type}}</option>
         </select>
       </div>
       <div class="form-row">
@@ -32,8 +32,11 @@
 <script>
 
 export default {
-  name: 'Footer',
-  components: {
+  name: 'ProductChoose',
+  data() {
+    return {
+      currentType: ""
+    }
   },
   props: [
     'types'

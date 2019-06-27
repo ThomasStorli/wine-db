@@ -15,26 +15,26 @@
             <small>Aldersgrense</small>
           </div>
       </div>
-      <div v-for="(item, index) in items" :key="index" class="row justify-content-center align-items-center border"> 
-          <div class="col-1">
-            {{index+1}}
-          </div> 
-          <div class="col-3">
-            <div class="col image-container">
-              <img v-bind:src="item.picture"/>
-            </div>
-          </div>      
-          <div class="col-5 border-left border-right">
-            <h1>{{ item.name }} </h1>
-            <p> {{item.price }}kr {{item.cl}}cl {{item.alcohol}}%</p>
-            <p><small>{{ item.price_per_alco }}kr per liter alkohol</small></p>
+      <div v-for="(item, index) in products" :key="index" class="row justify-content-center align-items-center border"> 
+        <div class="col-1">
+          {{index+1}}
+        </div> 
+        <div class="col-3">
+          <div class="col image-container">
+            <img v-bind:src="item.picture"/>
           </div>
-          <div class="col-3">
-            <span class="image-container age-limit">
-              <img v-if="item.alcohol < 22" src="../assets/18.png" />
-              <img v-else src="../assets/20.png"/>
-            </span>
-          </div>
+        </div>      
+        <div class="col-5 border-left border-right">
+          <h1>{{ item.name }} </h1>
+          <p> {{item.price }}kr {{item.cl}}cl</p>
+          <p><small>{{ item.price_per_alco }}kr per liter alkohol</small></p>
+        </div>
+        <div class="col-3">
+          <span class="image-container age-limit">
+            <img v-if="item.alcohol < 22" src="../assets/18.png" />
+            <img v-else src="../assets/20.png"/>
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -45,7 +45,7 @@
 export default {
   name: 'ProductList',
   props: [
-    'items'
+    'products'
   ]
 }
 </script>
@@ -75,7 +75,5 @@ h1 {
 .age-limit img{
   width: 40px;
   height: 40px;
-}
-.rank {
 }
 </style>
