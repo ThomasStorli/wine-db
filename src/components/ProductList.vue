@@ -1,12 +1,12 @@
 <template>
   <div class="container">
-    <table class="table  table-bordered">
+    <table class="table table-bordered">
       <thead>
         <tr>
           <th scope="col"><small>#</small></th>
           <th scope="col"><small>Bilde</small></th>
           <th scope="col"><small>Info</small></th>
-          <th scope="col"><small>Alkohol</small></th>
+          <th scope="col"><small>Aldersgrense</small></th>
         </tr>
       </thead>
       <tbody>
@@ -22,7 +22,7 @@
               <h1 style="text-decoration: underline; color:#343a40;">{{ item.name }} </h1>
             </a>
             <p> {{item.price }}kr {{item.cl}}cl {{item.alcohol}}%</p>
-            <p><small>{{ item.price_per_alco }}kr per liter alkohol</small></p>
+            <p><small>{{ item.price_per_alco }}kr per liter ren alkohol</small></p>
           </td>
           <td class="td-image">
             <span class="image-container age-limit">
