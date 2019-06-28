@@ -18,6 +18,7 @@
             </span>
           </td>
           <td>
+            <p v-if="type == ''"><small>{{item.type[0]}}</small></p>
             <a :href="item.url">
               <h1 style="text-decoration: underline; color:#343a40;">{{ item.name }} </h1>
             </a>
@@ -41,7 +42,8 @@
 export default {
   name: 'ProductList',
   props: [
-    'products'
+    'products',
+    'type'
   ]
 }
 </script>
