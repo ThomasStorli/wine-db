@@ -21,7 +21,7 @@ export default {
   },
   data() {
     return {
-      // "link" is a public GitHub Gist for anyone to see
+      // "link" is a public GitHub Gist for anyone to see.
       link: "https://gist.githubusercontent.com/ThomasStorli/91432dde678216ecab41c31ae007f49b/raw/",
       items: null
     }
