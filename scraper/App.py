@@ -10,8 +10,12 @@ def start():
 types = ["Rødvin", "Hvitvin", "Rosévin", "Sterkvin", "Musserende vin", "Brennevin", "Vodka", "Gin", "Sake", "Øl", "Perlende vin", "Tequila", "Bitter", "Rom", "Likør", "Whisky", "Akevitt", "India pale ale"]
 def createObject(s):
     prodList = []
+    prodList.append({"name": "top", "products": []})
 
     for p in s:
+        if p not in prodList[0]["products"] and len(prodList[0]["products"])< 100:
+            prodList[0]["products"].append(p)
+            
         for t in p["type"]:
             t = t.lower()
             t = t.capitalize()

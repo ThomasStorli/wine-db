@@ -32,7 +32,9 @@ export default {
     getTypes: function(){  
       var l = [] 
       for (var i = 0; i < this.items.length; ++i){
-        l.push(this.items[i].name);
+        if (this.items[i].name != "top"){
+          l.push(this.items[i].name);
+        }
       }
       this.types = l;
     },
