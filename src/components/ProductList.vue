@@ -1,46 +1,34 @@
 <template>
-  <div class="mx-2">
-    <div class="container border">
-      <div class="row justify-content-center align-items-center border">
-          <div class="col-1">
-            <small>#</small>
-          </div> 
-          <div class="col-3 text-center">
-            <small>Bilde</small>
-          </div>      
-          <div class="col-5 border-left border-right">
-            <small>Info</small>
-          </div>
-          <div class="col-3 text-center">
-            <small>Aldersgrense</small>
-          </div>
-      </div>
-      <div v-for="(item, index) in products" :key="index" class="row justify-content-center align-items-center border"> 
-        <div class="col-1">
-          {{index+1}}
-        </div> 
-        <div class="col-3">
-           <a :href="item.url">
-            <div class="col image-container">
-              <img v-bind:src="item.picture"/>
-            </div>
-          </a>
-        </div>      
-        <div class="col-5 border-left border-right">
-          <a :href="item.url">
-            <h1 style="text-decoration: underline; color:#343a40;">{{ item.name }} </h1>
-          </a>
-          <p> {{item.price }}kr {{item.cl}}cl {{item.alcohol}}%</p>
-          <p><small>{{ item.price_per_alco }}kr per liter alkohol</small></p>
-        </div>
-        <div class="col-3">
-          <span class="image-container age-limit">
-            <img v-if="item.alcohol < 22" src="../assets/18.png" />
-            <img v-else src="../assets/20.png"/>
-          </span>
-        </div>
-      </div>
-    </div>
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"><small>#</small></th>
+          <th scope="col"><small>Bilde</small></th>
+          <th scope="col"><small>Info</small></th>
+          <th scope="col"><small>Alkohol</small></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(item, index) in products" :key="index">
+          <th scope="row">{{index+1}}</th>
+          <td><img v-bind:src="item.picture"/></td>
+          <td>
+            <a :href="item.url">
+              <h1 style="text-decoration: underline; color:#343a40;">{{ item.name }} </h1>
+            </a>
+            <p> {{item.price }}kr {{item.cl}}cl {{item.alcohol}}%</p>
+            <p><small>{{ item.price_per_alco }}kr per liter alkohol</small></p>
+          </td>
+          <td>
+            <span class="image-container age-limit">
+              <img v-if="item.alcohol < 22" src="../assets/18.png" />
+              <img v-else src="../assets/20.png"/>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
