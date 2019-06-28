@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <table class="table">
+    <table class="table  table-bordered">
       <thead>
         <tr>
           <th scope="col"><small>#</small></th>
@@ -12,7 +12,11 @@
       <tbody>
         <tr v-for="(item, index) in products" :key="index">
           <th scope="row">{{index+1}}</th>
-          <td><img v-bind:src="item.picture"/></td>
+          <td class="td-image">
+            <span class="image-container">
+              <img v-bind:src="item.picture"/>
+            </span>
+          </td>
           <td>
             <a :href="item.url">
               <h1 style="text-decoration: underline; color:#343a40;">{{ item.name }} </h1>
@@ -20,7 +24,7 @@
             <p> {{item.price }}kr {{item.cl}}cl {{item.alcohol}}%</p>
             <p><small>{{ item.price_per_alco }}kr per liter alkohol</small></p>
           </td>
-          <td>
+          <td class="td-image">
             <span class="image-container age-limit">
               <img v-if="item.alcohol < 22" src="../assets/18.png" />
               <img v-else src="../assets/20.png"/>
@@ -58,6 +62,10 @@ p {
 
 h1 {
   font-size: 1.2em;
+}
+
+.td-image {
+  vertical-align: middle;
 }
 
 .image-container img{
