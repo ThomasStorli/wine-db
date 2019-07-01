@@ -20,14 +20,14 @@
           {{index+1}}
         </div> 
         <div class="col-3">
-           <a :href="item.url">
+           <a :href="item.url" target="_blank">
             <div class="col image-container">
               <img v-bind:src="item.picture"/>
             </div>
           </a>
         </div>      
         <div class="col-5 border-left border-right">
-          <a :href="item.url">
+          <a :href="item.url" target="_blank">
             <h1 style="text-decoration: underline; color:#343a40;">{{ item.name }} </h1>
           </a>
           <p> {{item.price }}kr {{item.cl}}cl {{item.alcohol}}%</p>
