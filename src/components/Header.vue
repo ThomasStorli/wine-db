@@ -1,6 +1,6 @@
 <template>
-  <div class="container header border-bottom mb-3">
-    <h1> Wine<span style="color: black;">DB</span></h1>
+  <div class="container text-center header mb-3">
+    <a href="AlkisKalkis.no"><img src="../assets/AlkisKalkisSmall.png" width="100px"/></a>
     <p> Sist Oppdatert: {{updated}} </p>
   </div>
 </template>
