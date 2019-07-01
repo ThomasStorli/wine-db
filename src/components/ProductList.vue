@@ -27,6 +27,7 @@
           </a>
         </div>      
         <div class="col-5 border-left border-right">
+          <p v-if="type == ''"><small> {{item.type[0]}} </small></p>
           <a :href="item.url" target="_blank">
             <h1 style="text-decoration: underline; color:#343a40;">{{ item.name }} </h1>
           </a>
