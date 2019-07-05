@@ -1,7 +1,8 @@
 <template>
   <div class="container text-center header mb-3">
     <a href="AlkisKalkis.no"><img src="../assets/AlkisKalkisSmall.png" width="100px"/></a>
-    <p> Sist Oppdatert: {{updated}} </p>
+    <p>Alle varene på polet - sortert etter pris</p>
+    <p class="updated">Sist Oppdatert: {{updated}} </p>
   </div>
 </template>
 
@@ -30,8 +31,12 @@ h1 {
 }
 
 p {
-  font-size: 0.7em;
+  font-size: 0.8em;
   text-align: center;
+  margin-bottom: 0px;
+}
+
+.updated{
   color: grey;
   margin-bottom: 10px;
 }
