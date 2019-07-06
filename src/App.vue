@@ -34,6 +34,10 @@ export default {
     }
   },
   beforeMount() {
+    if (location.protocol == "http:"){
+      window.location.href = "https://www.alkiskalkis.no";
+    }
+
     this.loadData();
   }
 }
