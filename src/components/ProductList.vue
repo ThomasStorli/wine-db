@@ -6,7 +6,7 @@
           <th scope="col"><small>#</small></th>
           <th scope="col"><small>Bilde</small></th>
           <th scope="col"><small>Info</small></th>
-          <th scope="col"><small>Alkohol</small></th>
+          <th scope="col"><small>Aldersgrense</small></th>
         </tr>
       </thead>
       <tbody>
