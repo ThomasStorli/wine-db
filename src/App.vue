@@ -34,6 +34,12 @@ export default {
     }
   },
   beforeMount() {
+    // Always go to https version of the page
+    if (location.protocol == "http:"){
+      // TODO: REMOVE COMMENT WHEN BUILDING FOR PRODUCTION
+      //window.location.href = "https://www.alkiskalkis.no";
+    }
+
     this.loadData();
   }
 }
