@@ -26,7 +26,7 @@
             </div>
           </a>
         </div>      
-        <div class="col-5 border-left border-right">
+        <div class="col-5 border-left border-right pt-1 pb-1">
           <p><small> {{item.type[0]}} - {{item.land}} </small></p>
           <a :href="item.url" target="_blank">
             <h1 style="text-decoration: underline; color:#343a40;">{{ item.name }} </h1>
