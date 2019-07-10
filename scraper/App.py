@@ -7,7 +7,7 @@ def start():
         data = json.load(f)
         createObject(data)
 
-types = ["Rødvin", "Hvitvin", "Rosévin", "Sterkvin", "Musserende vin", "Brennevin", "Vodka", "Gin", "Sake", "Øl", "Perlende vin", "Tequila", "Bitter", "Rom", "Likør", "Whisky", "Akevitt", "India pale ale"]
+types = ["Rødvin", "Cognac", "Hvitvin", "Rosévin", "Sterkvin", "Musserende vin", "Brennevin", "Vodka", "Gin", "Sake", "Øl", "Perlende vin", "Tequila", "Bitter", "Rom", "Likør", "Whisky", "Akevitt", "India pale ale"]
 def createObject(s):
     prodList = []
     prodList.append({"name": "top", "products": []})
