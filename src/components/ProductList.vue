@@ -27,11 +27,11 @@
           </a>
         </div>      
         <div class="col-5 border-left border-right">
-          <p v-if="type == ''"><small> {{item.type[0]}} </small></p>
+          <p><small> {{item.type[0]}} - {{item.land}} </small></p>
           <a :href="item.url" target="_blank">
             <h1 style="text-decoration: underline; color:#343a40;">{{ item.name }} </h1>
           </a>
-          <p> {{item.price }}kr {{item.cl}}cl {{item.alcohol}}%</p>
+          <p> {{item.price }}kr - {{item.cl}}cl - {{item.alcohol}}%</p>
           <p><small>{{ item.price_per_alco }}kr per liter alkohol</small></p>
         </div>
         <div class="col-3">
