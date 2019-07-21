@@ -1,6 +1,6 @@
 import json
 import codecs
-from datetime import date
+import datetime
 import operator
 
 def start():
@@ -34,8 +34,8 @@ def createObject(s):
             elif p not in prodList[e]["products"] and len(prodList[e]["products"]) < 100:
                 prodList[e]["products"].append(p)
 
-    today = date.today()
-    d1 = today.strftime("%d/%m/%Y")
+    now = datetime.datetime.now()
+    d1 = now.strftime("%d/%m/%Y %H:%M")
 
     output = {"date": f"{d1}"}
     output["items"] = prodList
