@@ -1,6 +1,7 @@
 <template>
   <div>
     <TopProduct v-bind:item ='currentItems.products[0]' />
+    <div id="adsgoeshere" style="background: #fff; padding-top:60px; text-align: center;" v-html="adsenseContent"></div>
     <ProductChoose v-bind:types='types' v-model="currentType"/>
     <ProductList v-bind:products='currentItems.products' v-bind:type="currentType"/>
   </div>
@@ -22,7 +23,8 @@ export default {
     return {
       types: [],
       currentType: "",
-      currentItems: null
+      currentItems: null,
+      adsenseContent: ''
     }
   },
   props: [
@@ -55,6 +57,7 @@ export default {
   mounted() {
     this.getTypes();
     this.getCurrentItems(this.currentType);
+    this.adsenseContent = document.getElementById('divadsensedisplaynone').innerHTML;
   },
   watch: {
     currentType: function(val){
