@@ -1,32 +1,46 @@
 <template>
-   <div class="container">
+  <div class="container">
     <table class="table">
       <thead>
         <tr>
-          <th scope="col"><small>#</small></th>
-          <th scope="col"><small>Bilde</small></th>
-          <th scope="col"><small>Info</small></th>
-          <th scope="col"><small>Aldersgrense</small></th>
+          <th scope="col">
+            <small>#</small>
+          </th>
+          <th scope="col">
+            <small>Bilde</small>
+          </th>
+          <th scope="col">
+            <small>Info</small>
+          </th>
+          <th scope="col">
+            <small>Aldersgrense</small>
+          </th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="(item, index) in products" :key="index">
           <th scope="row">{{index+1}}</th>
           <a :href="item.url">
-          <td><img id="produktBilde" v-bind:src="item.picture"/></td>
+            <td>
+              <img id="produktBilde" v-bind:src="item.picture" />
+            </td>
           </a>
           <td>
-            <p><small> {{item.type[0]}} - {{item.land}} </small></p>
+            <p>
+              <small>{{item.type[0]}} - {{item.land}}</small>
+            </p>
             <a :href="item.url">
-              <h1 style="text-decoration: underline; color:#343a40;">{{ item.name }} </h1>
+              <h1 style="text-decoration: underline; color:#343a40;">{{ item.name }}</h1>
             </a>
-            <p> {{item.price }}kr {{item.cl}}cl {{item.alcohol}}%</p>
-            <p><small>{{ item.price_per_alco }}kr per liter alkohol</small></p>
+            <p>{{item.price }}kr {{item.cl}}cl {{item.alcohol}}%</p>
+            <p>
+              <small>{{ item.price_per_alco }}kr per liter alkohol</small>
+            </p>
           </td>
           <td>
             <span class="image-container age-limit">
               <img v-if="item.alcohol < 22" src="../assets/18.png" />
-              <img v-else src="../assets/20.png"/>
+              <img v-else src="../assets/20.png" />
             </span>
           </td>
         </tr>
@@ -36,21 +50,17 @@
 </template>
 
 <script>
-
 export default {
-  name: 'ProductList',
-  props: [
-    'products',
-    'type'
-  ]
-}
+  name: "ProductList",
+  props: ["products", "type", "search"]
+};
 </script>
 
 <style scoped>
-#produktBilde{
+#produktBilde {
   max-width: 50px;
   max-height: 100px;
-  }
+}
 
 small {
   color: grey;
@@ -69,11 +79,11 @@ h1 {
   vertical-align: middle;
 }
 
-.image-container img{
+.image-container img {
   display: block;
-  margin:auto;
+  margin: auto;
 }
-.age-limit img{
+.age-limit img {
   width: 40px;
   height: 40px;
 }

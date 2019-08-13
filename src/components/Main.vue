@@ -1,22 +1,33 @@
 <template>
   <div>
-    <TopProduct v-bind:item ='currentItems.products[0]' />
-    <div id="adsgoeshere" style="background: #fff; padding-top:60px; text-align: center; padding:0px;" v-html="adsenseContent"></div>
-    <ProductChoose v-bind:types='types' v-model="currentType"/>
-    <ProductList v-bind:products='currentItems.products' v-bind:type="currentType"/>
+    <TopProduct v-bind:item="currentItems.products[0]" />
+    <div
+      id="adsgoeshere"
+      style="background: #fff; padding-top:60px; text-align: center; padding:0px;"
+      v-html="adsenseContent"
+    ></div>
+    <ProductChoose v-bind:types="types" v-model="currentType" />
+    <ProductSearch v-model="search"/>
+    <ProductList
+      v-bind:products="searchFilter(currentItems.products)"
+      v-bind:type="currentType"
+      v-bind:search="search"
+    />
   </div>
 </template>
 
 <script>
-import TopProduct from './TopProduct.vue'
-import ProductList from './ProductList.vue'
-import ProductChoose from './ProductChoose.vue'
+import TopProduct from "./TopProduct.vue";
+import ProductList from "./ProductList.vue";
+import ProductChoose from "./ProductChoose.vue";
+import ProductSearch from "./ProductSearch.vue";
 
 export default {
-  name: 'Main',
+  name: "Main",
   components: {
     TopProduct,
     ProductChoose,
+    ProductSearch,
     ProductList
   },
   data() {
@@ -24,52 +35,70 @@ export default {
       types: [],
       currentType: "",
       currentItems: null,
-      adsenseContent: ''
-    }
+      adsenseContent: "",
+      search: ""
+    };
   },
-  props: [
-    'items'
-  ],
+  props: ["items"],
   methods: {
-    getTypes: function(){  
-      var l = [] 
-      for (var i = 0; i < this.items.length; ++i){
-        if (this.items[i].name != "top"){
+    searchFilter: function(lst) {
+      let newList = [];
+      for (let i = 0; i < lst.length; i++) {
+        const el = lst[i];
+        if (this.searchCheck(el.name)) {
+          newList.push(el);
+        }
+      }
+      return newList;
+    },
+    searchCheck: function(name) {
+      if (name.toLowerCase().includes(this.search.toLowerCase())) {
+        return true;
+      } else if (this.search == "") {
+        return true;
+      }
+      return false;
+    },
+    getTypes: function() {
+      var l = [];
+      for (var i = 0; i < this.items.length; ++i) {
+        if (this.items[i].name != "top") {
           l.push(this.items[i].name);
         }
       }
       this.types = l;
     },
-    getCurrentItems: function(val){
-      for (var i = 0; i < this.items.length; ++i){
-        if (val == ""){
-          this.currentItems = this.items[0]
+    getCurrentItems: function(val) {
+      for (var i = 0; i < this.items.length; ++i) {
+        if (val == "") {
+          this.currentItems = this.items[0];
           break;
         }
-        if (this.items[i].name == val){
-          this.currentItems = this.items[i]
+        if (this.items[i].name == val) {
+          this.currentItems = this.items[i];
           break;
         }
-        this.currentItems = null
+        this.currentItems = null;
       }
     }
   },
   mounted() {
     this.getTypes();
     this.getCurrentItems(this.currentType);
-    this.adsenseContent = document.getElementById('divadsensedisplaynone').innerHTML;
+    this.adsenseContent = document.getElementById(
+      "divadsensedisplaynone"
+    ).innerHTML;
   },
   watch: {
-    currentType: function(val){
-      this.getCurrentItems(val)
+    currentType: function(val) {
+      this.getCurrentItems(val);
     }
   }
-
-}
+};
 </script>
 
 <style scoped>
-p{
+p {
   text-align: center;
 }
 

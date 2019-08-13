@@ -1,48 +1,37 @@
 <template>
-    <div class='container text-center border w-50 pt-1 alert alert-light'>
-      <a :href="item.url" target="_blank">
+  <div class="container text-center border w-50 pt-1 alert alert-light">
+    <a :href="item.url" target="_blank">
       <div>
-        <h3> Billigste drikke </h3>
-        <img v-bind:src="item.picture" style="height: 150px;">
+        <h3>Billigste drikke</h3>
+        <img v-bind:src="item.picture" style="height: 150px;" />
         <h3 style="text-decoration: underline;">
-          {{item.name}} 
+          {{item.name}}
           <img v-if="item.alcohol < 22" style="width:23px;" src="../assets/18.png" />
           <img v-else style="width:23px;" src="../assets/20.png" />
         </h3>
         <div class="dropdown-divider"></div>
-          <h3>
-            {{item.price}}kr
-          </h3>
-          <h3>
-            {{item.cl}} cl
-          </h3>
-          <h3>
-            {{item.alcohol}}%
-          </h3>
-          <h3>
-            {{item.price_per_alco}}kr per liter ren alkohol
-          </h3>
-        </div>
-      </a>
-    </div>
+        <h3>{{item.price}}kr</h3>
+        <h3>{{item.cl}} cl</h3>
+        <h3>{{item.alcohol}}%</h3>
+        <h3>{{item.price_per_alco}}kr per liter ren alkohol</h3>
+      </div>
+    </a>
+  </div>
 </template>
 
 <script>
-
 export default {
-  name: 'TopProduct',
-  props: [
-    'item'
-  ]
-}
+  name: "TopProduct",
+  props: ["item"]
+};
 </script>
 
 <style scoped>
-.centerText{
+.centerText {
   display: block;
   margin: auto;
 }
-h3{
+h3 {
   font-size: 1.2em;
 }
 
@@ -53,17 +42,17 @@ a {
 
 a:hover {
   text-decoration: none;
-  color:#343a40;
+  color: #343a40;
 }
 
 a:visited {
   text-decoration: none;
-  color:#343a40;
+  color: #343a40;
 }
 
 a:active {
   text-decoration: none;
-  color:#343a40;
+  color: #343a40;
 }
 
 .border {
@@ -74,7 +63,7 @@ a:active {
   */
   border-width: 3px !important;
 }
-.container{
+.container {
   color: #343a40 !important;
 }
 </style>
