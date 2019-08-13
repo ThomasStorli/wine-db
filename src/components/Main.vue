@@ -1,7 +1,7 @@
 <template>
   <div>
     <TopProduct v-bind:item ='currentItems.products[0]' />
-    <div id="adsgoeshere" style="background: #fff; padding-top:60px; text-align: center;" v-html="adsenseContent"></div>
+    <div id="adsgoeshere" style="background: #fff; padding-top:60px; text-align: center; padding:0px;" v-html="adsenseContent"></div>
     <ProductChoose v-bind:types='types' v-model="currentType"/>
     <ProductList v-bind:products='currentItems.products' v-bind:type="currentType"/>
   </div>
