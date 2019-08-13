@@ -12,7 +12,9 @@
       <tbody>
         <tr v-for="(item, index) in products" :key="index">
           <th scope="row">{{index+1}}</th>
-          <td><img v-bind:src="item.picture"/></td>
+          <a :href="item.url">
+          <td><img id="produktBilde" v-bind:src="item.picture"/></td>
+          </a>
           <td>
             <p><small> {{item.type[0]}} - {{item.land}} </small></p>
             <a :href="item.url">
@@ -45,9 +47,10 @@ export default {
 </script>
 
 <style scoped>
-img {
-  height: 60px;
-}
+#produktBilde{
+  max-width: 50px;
+  max-height: 100px;
+  }
 
 small {
   color: grey;
