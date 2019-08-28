@@ -7,7 +7,7 @@
       v-html="adsenseContent"
     ></div>
     <ProductChoose v-bind:types="types" v-model="currentType" />
-    <ProductSearch v-model="search"/>
+    <ProductSearch v-model="search" />
     <ProductList
       v-bind:products="searchFilter(currentItems.products)"
       v-bind:type="currentType"

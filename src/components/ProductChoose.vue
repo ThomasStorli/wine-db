@@ -2,10 +2,15 @@
   <div class="container pb-3">
     <form>
       <div class="form-group">
-        <label for="typeSelect"> Valg alkoholtype: </label>
-        <select id="typeSelect" class="form-control" v-model="currentType" @input="event => { $emit('input', event.target.value) }">
-            <option value="" selected="selected">Alle typer alkohol</option>
-            <option v-for="(type, index) in types" :key="index" :value="type">{{type}}</option>
+        <label for="typeSelect">Valg alkoholtype:</label>
+        <select
+          id="typeSelect"
+          class="form-control"
+          v-model="currentType"
+          @input="event => { $emit('input', event.target.value) }"
+        >
+          <option value selected="selected">Alle typer alkohol</option>
+          <option v-for="(type, index) in types" :key="index" :value="type">{{type}}</option>
         </select>
       </div>
     </form>
@@ -13,18 +18,15 @@
 </template>
 
 <script>
-
 export default {
-  name: 'ProductChoose',
+  name: "ProductChoose",
   data() {
     return {
       currentType: ""
-    }
+    };
   },
-  props: [
-    'types'
-  ]
-}
+  props: ["types"]
+};
 </script>
 
 <style scoped>
