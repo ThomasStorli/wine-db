@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="wrapper table-responsive">
     <table class="table">
       <thead>
         <tr>
@@ -19,18 +19,22 @@
       </thead>
       <tbody>
         <tr v-for="(item, index) in products" :key="index">
-          <th scope="row">{{index+1}}</th>
-          <a :href="item.url">
-            <td>
-              <img id="produktBilde" v-bind:src="item.picture" />
-            </td>
-          </a>
+          <th scope="row">
+            <p v-if="type == ''">{{item.IDa + 1}}</p>
+            <p v-else>{{item.ID + 1}}</p>
+          </th>
+
+          <td>
+            <a :href="item.url">
+              <img class="productImage" v-bind:src="item.picture" />
+            </a>
+          </td>
           <td>
             <p>
               <small>{{item.type[0]}} - {{item.land}}</small>
             </p>
             <a :href="item.url">
-              <h1 style="text-decoration: underline; color:#343a40;">{{ item.name }}</h1>
+              <p style="text-decoration: underline; color:#343a40;">{{ item.name }}</p>
             </a>
             <p>{{item.price }}kr {{item.cl}}cl {{item.alcohol}}%</p>
             <p>
@@ -57,9 +61,43 @@ export default {
 </script>
 
 <style scoped>
-#produktBilde {
+.wrapper {
+  max-width: 60vw;
+  margin: auto;
+}
+.age-limit img {
+  width: 40px;
+  height: 40px;
+}
+
+h1 {
+  font-size: 1.2em;
+}
+
+.productImage {
   max-width: 50px;
   max-height: 100px;
+}
+
+@media all and (max-width: 499px) {
+  .wrapper {
+    max-width: 100vw;
+  }
+  .age-limit img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .productImage {
+    max-width: 10vw;
+    max-height: 100px;
+  }
+  p {
+    font-size: 4vw;
+  }
+  h1 {
+    font-size: 4vw;
+  }
 }
 
 small {
@@ -71,10 +109,6 @@ p {
   margin: 0;
 }
 
-h1 {
-  font-size: 1.2em;
-}
-
 .td-image {
   vertical-align: middle;
 }
@@ -82,9 +116,5 @@ h1 {
 .image-container img {
   display: block;
   margin: auto;
-}
-.age-limit img {
-  width: 40px;
-  height: 40px;
 }
 </style>

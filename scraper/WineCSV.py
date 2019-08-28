@@ -51,7 +51,6 @@ with closing(requests.get(url, stream=True)) as f:
 # Sort the list by price per alcohol
 sortedItems = sorted(items, key=lambda i: i["price_per_alco"])
 
-
 with codecs.open("WineCsvSorted.json", "w+", encoding="utf8") as f:
     json.dump(sortedItems, f, ensure_ascii=False)
 

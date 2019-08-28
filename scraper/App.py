@@ -39,6 +39,14 @@ def createObject(s):
 
     output = {"date": f"{d1}"}
     output["items"] = prodList
+    
+    # Adding IDs
+    for items in output["items"]:
+        for e, p in enumerate(items["products"]):
+            p["ID"] = e
+
+    for e, p in enumerate(output["items"][0]["products"]):
+        p["ID"] = e
 
     with codecs.open("output.json", "w+", encoding='utf8') as g:
         json.dump(output, g, ensure_ascii=False)
