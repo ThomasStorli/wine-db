@@ -2,7 +2,7 @@
   <div class="container pb-3">
     <form>
       <div class="form-group">
-        <label for="typeSelect">Valg alkoholtype:</label>
+        <label for="typeSelect">Velg alkoholtype:</label>
         <select
           id="typeSelect"
           class="form-control"
