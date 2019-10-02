@@ -4,7 +4,7 @@
       <img src="../assets/AlkisKalkisSmall.png" width="100px" />
     </a>
     <p>Alle varene på polet - sortert etter pris</p>
-    <p class="updated">Sist Oppdatert: {{updated}}</p>
+    <p class="updated">Sist oppdatert {{getUpdated()}} timer siden</p>
   </div>
 </template>
 
@@ -12,7 +12,13 @@
 export default {
   name: "Header",
   components: {},
-  props: ["updated"]
+  props: ["updated"],
+  methods: {
+    getUpdated: function(){
+      var date = new Date();
+      return Math.round((date.getTime() - this.updated)/(1000*60*60));
+    }
+  }
 };
 </script>
 
