@@ -1,8 +1,10 @@
 <template>
   <div>
-    <Header v-bind:updated="items.date"/>
-    <Main v-bind:items="items.items" :types="types" />
-    <Footer/>
+    <div v-if="items != null">
+      <Header :updated="items.date"/>
+      <Main :items="items.items"/>
+      <Footer/>
+    </div>
   </div>
 </template>
 
@@ -29,7 +31,7 @@ export default {
   methods: {
     loadData(){
       axios.get(this.link).then(response =>{
-        this.items = response.data
+        this.items = response.data;
       })
     }
   },

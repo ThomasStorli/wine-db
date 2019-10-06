@@ -1,18 +1,20 @@
 <template>
   <div>
-    <TopProduct v-bind:item="currentItems.products[0]" />
-    <div
-      id="adsgoeshere"
-      style="background: #fff; padding-top:60px; text-align: center; padding:0px;"
-      v-html="adsenseContent"
-    ></div>
-    <ProductChoose v-bind:types="types" v-model="currentType" />
-    <ProductSearch v-model="search" />
-    <ProductList
-      v-bind:products="searchFilter(currentItems.products)"
-      v-bind:type="currentType"
-      v-bind:search="search"
-    />
+    <div v-if="currentItems != null">
+      <TopProduct v-bind:item="currentItems.products[0]" />
+      <div
+        id="adsgoeshere"
+        style="background: #fff; padding-top:60px; text-align: center; padding:0px;"
+        v-html="adsenseContent"
+      ></div>
+      <ProductChoose v-bind:types="types" v-model="currentType" />
+      <ProductSearch v-model="search" />
+      <ProductList
+        v-bind:products="searchFilter(currentItems.products)"
+        v-bind:type="currentType"
+        v-bind:search="search"
+      />
+    </div>
   </div>
 </template>
 
