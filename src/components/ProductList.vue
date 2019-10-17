@@ -18,7 +18,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item, index) in products" :key="index">
+        <tr v-for="(item, index) in getProds()" :key="index">
           <th scope="row">
             <p v-if="type == ''">{{item.IDa + 1}}</p>
             <p v-else>{{item.ID + 1}}</p>
@@ -50,17 +50,48 @@
         </tr>
       </tbody>
     </table>
+
+    <div v-if="pageElements < products.length" v-on:click="nextPage()" class="nextPageButton"> <h1>Last inn flere</h1> </div>
   </div>
 </template>
 
 <script>
 export default {
   name: "ProductList",
-  props: ["products", "type", "search"]
+  props: ["products", "type", "search"],
+  data() {
+    return{
+      pageElements: 20
+    }
+  },
+  methods: {
+    nextPage: function() {
+      this.pageElements += 20;
+    },
+    getProds: function() {
+      return this.products.slice(0, this.pageElements);
+    }
+  }
 };
 </script>
 
 <style scoped>
+
+.nextPageButton {
+  margin-left: 20vw;
+  margin-right: 20vw;
+  padding-top:5px;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid;
+  border-radius: 16px;
+}
+
+.nextPageButton:hover {
+  color:white;
+  background-color: #305c8f;
+}
+
 .wrapper {
   max-width: 60vw;
   margin: auto;
@@ -97,6 +128,11 @@ h1 {
   }
   h1 {
     font-size: 4vw;
+  }
+    
+  .nextPageButton:hover {
+    color: black;
+    background-color:white;
   }
 }
 
