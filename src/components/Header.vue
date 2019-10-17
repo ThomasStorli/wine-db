@@ -4,7 +4,8 @@
       <img src="../assets/AlkisKalkisSmall.png" width="100px" />
     </a>
     <p>Alle varene på polet - sortert etter pris</p>
-    <p class="updated">Sist oppdatert {{getUpdated()}} timer siden</p>
+    <p v-if="getUpdated() == 1" class="updated">Sist oppdatert {{getUpdated()}} time siden</p>
+    <p v-else class="updated">Sist oppdatert {{getUpdated()}} timer siden</p>
   </div>
 </template>
 
