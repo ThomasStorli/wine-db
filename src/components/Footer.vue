@@ -1,7 +1,7 @@
 <template>
   <div>
     <footer class="border-top pt-3">
-      <h3 class="text-center">AlkisKalkis.no er ikke tilknyttet til Vinmonopolet på noen måte, og vi tar forbehold om at feil kan forekomme</h3>
+      <h3 class="text-center">AlkisKalkis.se är inte anslutet till Systembolaget på något sätt, och vi förbehåller om at fel kan uppstå</h3>
       <h1 class="pt-2">AlkisKalkis - {{ new Date().getFullYear() }}</h1>
     </footer>
   </div>

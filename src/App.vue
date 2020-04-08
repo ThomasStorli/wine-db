@@ -24,7 +24,7 @@ export default {
   data() {
     return {
       // "link" is a public GitHub Gist for anyone to see.
-      link: "https://gist.githubusercontent.com/AlexanderDeBattista/c93e0407cfe939d0a77137cc8ad210f8/raw/",
+      link: "https://gist.githubusercontent.com/AlexanderDeBattista/65a1e9bc7280d77f89e655cc5f027225/raw/",
       items: null
     }
   },
@@ -36,10 +36,16 @@ export default {
     }
   },
   beforeMount() {
-    // Always go to https version of the page
-    if (location.protocol == "http:"){
-      // TODO: REMOVE COMMENT WHEN BUILDING FOR PRODUCTION
-      //window.location.href = "https://www.alkiskalkis.no";
+    if (
+      location.hostname !== "localhost" &&
+      location.hostname !== "127.0.0.1"
+    ) {
+      if (location.protocol != "https:") {
+        location.replace(
+          "https:" +
+            window.location.href.substring(window.location.protocol.length)
+        );
+      }
     }
 
     this.loadData();

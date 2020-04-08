@@ -1,11 +1,23 @@
 <template>
   <div class="container text-center header mb-3">
-    <a href="AlkisKalkis.no">
+    <div>
+      <span style="float:right; ">
+        <img src="" alt="" />
+      </span>
+    </div>
+    <div class="mt-2">
+      <a href="AlkisKalkis.no">
       <img src="../assets/AlkisKalkisSmall.png" width="100px" />
     </a>
-    <p>Alle varene på polet - sortert etter pris</p>
-    <p v-if="getUpdated() == 1" class="updated">Sist oppdatert {{getUpdated()}} time siden</p>
-    <p v-else class="updated">Sist oppdatert {{getUpdated()}} timer siden</p>
+      <span v-on:click="gotoNO()" style="position:absolute; float:right; margin-left:20vw; cursor: pointer;">
+        <img src="../assets/Flag_of_Norway.svg" width="40px" alt="" />
+        <p> Norsk side </p>
+      </span>
+    <p>Allt på Systembolaget - Sorterat efter pris</p>
+    <p v-if="getUpdated() == 1" class="updated">Senast uppdaterad för {{getUpdated()}} timme sedan</p>
+    <p v-else class="updated">Sist oppdatert {{getUpdated()}} timmar sedan</p>
+    
+    </div>
   </div>
 </template>
 
@@ -18,6 +30,9 @@ export default {
     getUpdated: function(){
       var date = new Date();
       return Math.round((date.getTime() - this.updated)/(1000*60*60));
+    },
+    gotoNO: function() {
+      window.location.href = "https://www.alkiskalkis.no";
     }
   }
 };
@@ -44,5 +59,10 @@ p {
 .updated {
   color: grey;
   margin-bottom: 10px;
+}
+.stroke {
+    -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  font-size:1.5em;
 }
 </style>

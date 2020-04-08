@@ -2,12 +2,10 @@
   <div class="container text-center border w-50 pt-1 alert alert-light">
     <a :href="item.url" target="_blank">
       <div>
-        <h3>Billigste drikke</h3>
-        <img v-bind:src="item.picture" style="height: 150px;" />
+        <h3>Billigaste dryck</h3>
         <h3 style="text-decoration: underline;">
           {{item.name}}
-          <img v-if="item.alcohol < 22" style="width:23px;" src="../assets/18.png" />
-          <img v-else style="width:23px;" src="../assets/20.png" />
+          <img style="width:23px;" src="../assets/20.png" />
         </h3>
         <div class="dropdown-divider"></div>
         <h3>{{item.price}}kr</h3>

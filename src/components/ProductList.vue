@@ -7,7 +7,7 @@
             <small>#</small>
           </th>
           <th scope="col">
-            <small>Bilde</small>
+            <small>Namn</small>
           </th>
           <th scope="col">
             <small>Info</small>
@@ -23,19 +23,15 @@
             <p v-if="type == ''">{{item.IDa + 1}}</p>
             <p v-else>{{item.ID + 1}}</p>
           </th>
-
           <td>
             <a :href="item.url">
-              <img class="productImage" v-bind:src="item.picture" />
+              <p style="text-decoration: underline; color:#343a40;">{{ item.name }}</p>
             </a>
           </td>
           <td>
             <p>
-              <small>{{item.type[0]}} - {{item.land}}</small>
+              <small>{{item.type}} - {{item.land}}</small>
             </p>
-            <a :href="item.url">
-              <p style="text-decoration: underline; color:#343a40;">{{ item.name }}</p>
-            </a>
             <p>{{item.price }}kr {{item.cl}}cl {{item.alcohol}}%</p>
             <p>
               <small>{{ item.price_per_alco }}kr per liter alkohol</small>
@@ -43,15 +39,14 @@
           </td>
           <td>
             <span class="image-container age-limit">
-              <img v-if="item.alcohol < 22" src="../assets/18.png" />
-              <img v-else src="../assets/20.png" />
+              <img src="../assets/20.png" />
             </span>
           </td>
         </tr>
       </tbody>
     </table>
 
-    <div v-if="pageElements < products.length" v-on:click="nextPage()" class="nextPageButton"> <h1>Last inn flere</h1> </div>
+    <div v-if="pageElements < products.length" v-on:click="nextPage()" class="nextPageButton"> <h1>Ladda mer</h1> </div>
   </div>
 </template>
 

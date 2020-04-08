@@ -2,12 +2,12 @@
   <div class="container pb-3">
     <form v-on:submit.prevent>
       <div class="form-group">
-        <label for="search">Søk etter et produkt:</label>
+        <label for="search">Sök efter produkter</label>
         <input
           type="text"
           class="form-control"
           v-model="search"
-          placeholder="Søk her..."
+          placeholder="Sök här..."
           @input="event => { $emit('input', event.target.value) }"
         />
       </div>
@@ -25,8 +25,15 @@ export default {
   },
   methods: {
     update: function() {
-      this.$emit("searchUpdate", this.search);
+      this.$emit('input', this.search);
+    },
+    getSearch: function() {
+        this.search = new URL(window.location).searchParams.get("id");
+        this.update();
     }
+  },
+  mounted() {
+    this.getSearch();
   }
 };
 </script>
